@@ -25,16 +25,26 @@ public partial class MainPage : ContentPage
 		}
 
 		Dispatcher.StartTimer(TimeSpan.FromSeconds(.1), TimerTick);
+		
 	}
 
+	int score = int.MaxValue;
 	int tenthsOfSecondsElapsed = 0;
+
     private bool TimerTick()
     {
         if (!this.IsLoaded) return false;
 		tenthsOfSecondsElapsed++;
 		TimeElapsed.Text = "Time elapsed: " + (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
+
 		if (PlayAgainButton.IsVisible)
 		{
+			if (tenthsOfSecondsElapsed < score)
+				score = tenthsOfSecondsElapsed;
+
+			BestScore.Text = "Best score: " +
+				(score / 10F).ToString("0.0s");
+
 			tenthsOfSecondsElapsed = 0;
 			return false;
 		}

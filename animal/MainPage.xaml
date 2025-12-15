@@ -30,6 +30,7 @@
             </FlexLayout>
 
             <Label x:Name="TimeElapsed" Text="Time Elapsed: 0.0 seconds" FontSize="Large"/>
+            <Label x:Name="BestScore" Text="Best score: 0.0 seconds" FontSize="Large"/>
 
         </VerticalStackLayout>
     </ScrollView>
